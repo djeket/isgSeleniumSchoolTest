@@ -1,0 +1,13 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!-- //<?xml version="1.0" encoding="UTF-8"?> -->
+<suite name="smokeSuite" parallel = "classes" thread-count ="2">
+	<test name="parallelTest">
+		<classes>
+		<class name ="isg1.IsgStudentsSchoolBaseTest"/>
+			<class name="isg1.IsgStudentsSchoolTest" />
+		</classes>
+
+	</test>
+
+</suite>

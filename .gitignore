@@ -1,0 +1,10 @@
+# ignore .classpath
+.classpath
+# ignore .project also
+.project
+# ignore ALL files in ANY directory named .settings/
+.settings/
+# ignore ALL files in ANY directory named bin/
+bin/
+# ignore ALL files in ANY directory named test-output/
+test-output/
