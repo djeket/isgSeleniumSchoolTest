@@ -27,10 +27,10 @@ public class IsgStudentsSchoolBaseTest {
 		return dr.get();
 	}
 
-	@AfterMethod
-	public void aftermethod() {
-		getWebDriver().quit();
-		dr.set(null);
+//	@AfterMethod
+//	public void aftermethod() {
+//		getWebDriver().quit();
+//		dr.set(null);
 
 	}
-}
+//}

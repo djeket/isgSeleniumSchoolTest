@@ -17,7 +17,7 @@ public class WebDriverFactory {
 			driver = new ChromeDriver();
 			break;
 		case "Firefox":			
-			System.setProperty("webdriver.chrome.driver", driverPath);
+			System.setProperty("webdriver.firefox.driver", driverPath);
 			driver = new FirefoxDriver();
 			break;
 		default:
