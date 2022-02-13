@@ -14,7 +14,9 @@ public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 		Thread.sleep(5000);
 		// Welcome to the ISG Weekend School Enrollment Web Application.
 		// getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a")).click();
-		Assert.assertEquals(true, true);
+		String expected = "ISG Weekend Registration";
+		String actual = getWebDriver().getTitle();
+		Assert.assertEquals(expected, actual);
 		Thread.sleep(5000);
 	}
 
