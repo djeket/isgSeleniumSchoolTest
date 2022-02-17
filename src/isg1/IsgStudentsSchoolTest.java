@@ -1,5 +1,7 @@
 package isg1;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,15 +9,11 @@ import org.testng.annotations.Test;
 public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 
 	@Test(priority = 0)
-	public void URL() throws InterruptedException {
+	public void testURL() throws InterruptedException {
 		getWebDriver().get("http://angular-project-isg.s3-website-us-east-1.amazonaws.com");
-		// String actualTitle ="ISG Weekend Registration";
-		// Assert.assertEquals(, null)
-		Thread.sleep(2000);
-		// Welcome to the ISG Weekend School Enrollment Web Application.
-		// getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a")).click();
+		Thread.sleep(2000);		
 		String expected = "ISG Weekend Registration";
-		String actual = getWebDriver().getTitle();
+		String actual = getWebDriver().getTitle();		
 		Assert.assertEquals(expected, actual);
 		Thread.sleep(3000);
 		
@@ -23,16 +21,16 @@ public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 	}
 	
 	@Test(priority = 1)
-	public void createNewAccount() throws InterruptedException {
+	public void testStudentEnrollment() throws InterruptedException {
 		getWebDriver().get("http://angular-project-isg.s3-website-us-east-1.amazonaws.com");
 		getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a"))
 				.click();
 		Thread.sleep(2000);
 		getWebDriver().findElement(By.linkText("Create New Account!")).click();
 		Thread.sleep(2000);
-		getWebDriver().findElement(By.xpath("//input[@name='name']")).sendKeys("amina toure");
-		getWebDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("amy");
-		getWebDriver().findElement(By.xpath("//input[@name='password']")).sendKeys("1962");
+		getWebDriver().findElement(By.xpath("//input[@name='name']")).sendKeys("Salif Keita");
+		getWebDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("skeita");
+		getWebDriver().findElement(By.xpath("//input[@name='password']")).sendKeys("skeita");
 		getWebDriver().findElement(By.xpath("//button[@type='submit']")).click();
 		Assert.assertEquals(true, true);
 		// driver.findElement(By.linkText("I have an Account!")).click();
@@ -43,7 +41,7 @@ public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 	}
 
 	@Test(priority = 2)
-	public void userLoginByXpath() throws InterruptedException {
+	public void testUserLogin() throws InterruptedException {
 		getWebDriver().get("http://angular-project-isg.s3-website-us-east-1.amazonaws.com");
 		getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a"))
 				.click();
@@ -54,11 +52,18 @@ public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 		// click to sign in
 		getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-login/div/div/form/button")).click();
 		Thread.sleep(3000);
+		String expected = "ISG Weekend School Enrollment Wep Application";			
+		String actual = getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-welcome/div/h4")).getText();
+		
+		System.out.println("expected: " + expected);
+		System.out.println("actual: " + actual);
+		assertEquals(actual, expected);
 		
 		getWebDriver().quit();
 	}
+	
 	@Test(priority = 3)
-	public void newStudentEnrollement() throws InterruptedException {
+	public void testNewStudentEnrollement() throws InterruptedException {
 		getWebDriver().get("http://angular-project-isg.s3-website-us-east-1.amazonaws.com");
 		getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a"))
 				.click();
@@ -190,5 +195,22 @@ public class IsgStudentsSchoolTest extends IsgStudentsSchoolBaseTest {
 		
 		getWebDriver().quit();
 		
+	}
+	
+	@Test(priority = 4)
+	public void testDeleteExistingStudent() throws InterruptedException {
+		getWebDriver().get("http://angular-project-isg.s3-website-us-east-1.amazonaws.com");
+		getWebDriver().findElement(By.xpath("/html/body/app-root/div/app-main/div/div/div[2]/div/span[2]/h3/a"))
+				.click();
+	
+		// TO DO:
+		String expected = null;			
+		String actual = null;
+		
+		System.out.println("expected: " + expected);
+		System.out.println("actual: " + actual);
+		assertEquals(actual, expected);
+		
+		getWebDriver().quit();
 	}
 }
